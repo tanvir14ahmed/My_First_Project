@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends "first_app/base.html" %}
+{% block body_block %}
+<h5 style="text-align:center">Artist Name: <b>{{artist_info.first_name}}</b> {{artist_info.last_name}}</h5>
+<h5 style="text-align:center"><i>{{artist_info.instrument}}</i></h5>
+
+<h5><u>List of Albums:</u></h5>
+<table class="table table-bordered">
+  <tr>
+    <th>Album Name</th>
+    <th>Release Date</th>
+    <th>Rating</th>
+  </tr>
+  {% for album in album_list %}
+  <tr>
+    <td>{{album.name}}</td>
+    <td>{{album.release_date|date:"M d, Y"}}</td>
+    <td>{{album.num_stars}}</td>
+  </tr>
+
+  {% endfor %}
+</table>
+
+{% endblock %}
