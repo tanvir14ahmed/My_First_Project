@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from first_app.models import Musician, Album
 from first_app import forms
-from django.db.models import Avg
+from django.db.models import Avg 
 
 # Create your views here.
 def index(request):
