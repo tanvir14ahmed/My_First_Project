@@ -27,4 +27,4 @@ class Album(models.Model):
     (5, "Execllent"),
     )
 
-    num_stars = models.IntegerField(choices = rating) 
+    num_stars = models.IntegerField(choices = rating)

@@ -3,6 +3,8 @@
 {% block body_block %}
 <h5 style="text-align:center">Artist Name: <b>{{artist_info.first_name}}</b> {{artist_info.last_name}}</h5>
 <h5 style="text-align:center"><i>{{artist_info.instrument}}</i></h5>
+<h5 style="text-align:center">Artist Rating: {{artist_rating.num_stars__avg}}</h5>
+<a href="{% url 'first_app:edit_artist' artist_id=artist_info.id %}" class="btn btn-danger bnt-sm">Edit</a>
 
 <h5><u>List of Albums:</u></h5>
 <table class="table table-bordered">
