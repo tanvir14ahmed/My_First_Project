@@ -58,3 +58,29 @@ def edit_artist(request, artist_id):
 
     diction ={'edit_form':form}
     return render(request, "first_app/edit_artist.html", context = diction)
+
+
+def edit_album(request, album_id):
+    album_info = Album.objects.get(pk=album_id)
+    form = forms.AlbumForm(instance=album_info)
+    diction = {}
+
+    if request.method == "POST":
+        form = forms.AlbumForm(request.POST, instance=album_info)
+        if form.is_valid():
+            form.save(commit=True)
+            diction.update({'success_text':'Data Successfully Updated'})
+    diction.update({"edit_form":form})
+    diction.update({"album_id":album_id})
+    return render(request, "first_app/edit_album.html", context = diction)
+
+def delete_album(request, album_id):
+    album = Album.objects.get(pk=album_id).delete()
+    diction = {"delete_success":"Album Successfully Deleted !"}
+    return render(request, "first_app/delete.html", context=diction)
+
+
+def delete_musician(request, artist_id):
+    artist = Musician.objects.get(pk=artist_id).delete()
+    diction = {"delete_success":"Musician Successfully Deleted !"}
+    return render(request, "first_app/delete.html", context=diction)
