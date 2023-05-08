@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>I'm a template from First App</h1><br>
-    <h4>{{sample_text_1}}</h4><br>
-    <h4>{{sample_text_2}}</h4><br>
-    <p><a href="/contact">Contact Us</a></p>
+{% extends 'first_app/base.html' %}
+{% block body_block %}
+<ol>
+  {% for musician in musician_list %}
+  <li>{{musician.first_name}} {{musician.last_name}}</li>
+  {% endfor %}
+</ol>
 
-  </body>
-</html>
+
+{% endblock %}
