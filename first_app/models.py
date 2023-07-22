@@ -13,7 +13,7 @@ class Musician(models.Model):
         return self.first_name + " " + self.last_name + " " + self.instrument
 
     def get_absolute_url(self):
-        return reverse('first_app:index')
+        return reverse('first_app:musician_details', kwargs={'pk':self.pk})
 
 class Album(models.Model):
     artist = models.ForeignKey(Musician, on_delete=models.CASCADE, related_name="album_list")
